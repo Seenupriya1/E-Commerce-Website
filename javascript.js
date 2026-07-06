@@ -194,3 +194,13 @@ heart.classList.add("fa-solid", "added");
         }
     });
 };
+
+function highlightContact() {
+    const contact = document.getElementById("contact-details");
+
+    contact.classList.add("focus-contact");
+
+    setTimeout(function () {
+        contact.classList.remove("focus-contact");
+    }, 700);
+}

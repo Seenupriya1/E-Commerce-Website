@@ -392,7 +392,10 @@ footer {
 }
 
 
-#contact-details p{
-    margin-bottom: 15px;
+#contact-details {
+    transition: transform 0.3s ease;
 }
 
+.focus-contact {
+    transform: scale(1.03);
+}
