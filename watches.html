@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Family Fashion</title>
+    <link rel="stylesheet" href="access.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="Images/newlogo.jpeg" alt="logo" class="logo">
+
+        <div class="search-bar">
+           <input type="text" id="search-box" placeholder="Search products...">
+                    <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="shop.html">Home</a>
+            <a href="shop.html#contact-details">Contact</a>
+            <a href="#" onclick="openProfile()">Profile</a>
+            <div id="profileBox" class="popup">
+                <button onclick="openLogin()">Login / Sign Up</button>
+
+                <ul>
+                    <li>Orders</li>
+                    <li>Wishlist</li>
+                    <li>Account</li>
+                    <li>Settings</li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <input type="email" placeholder="Email"><br><br>
+
+                <input type="password" placeholder="Password"><br><br>
+
+                <button>Login</button>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <input type="text" placeholder="Full Name">
+                <br><br>
+
+                <input type="email" placeholder="Email">
+                <br><br>
+
+                <input type="password" placeholder="Password">
+                <br><br>
+
+                <input type="password" placeholder="Confirm Password">
+                <br><br>
+
+                <button>Create Account</button>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+                <div class="icon">
+
+                     <a href="wishlist.html">
+        <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+        <span id="wishlist-count">0</span>
+    </a>
+
+    <a href="cart.html">
+        <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+        <span id="cart-count">0</span>
+    </a>
+                </div>
+
+            </div>
+<h1 class="h2">Watches</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                <img src="Accessories/Watches/b1.jpg" alt="Kids">
+                  <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Silver Hybrid Watch</figcaption>
+                <p class="price">₹1099</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b2.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy Digital Black Watch</figcaption>
+                <p class="price">₹999</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b4.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Gold Strap Watch</figcaption>
+                <p class="price">₹1999</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b5.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Brown Hybrid Strap Watch</figcaption>
+                <p class="price">₹1499</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b6.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy Silver Hybrid Watch</figcaption>
+                <p class="price">₹1799</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b7.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Brown Leather Strap Watch</figcaption>
+                <p class="price">₹1199</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b8.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy White Digital Watch</figcaption>
+                <p class="price">₹1099</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b9.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Brwon Classic Watch</figcaption>
+                <p class="price">₹3099</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/b10.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Grey Digital Watch</figcaption>
+                <p class="price">₹1249</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g1.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy Silver Classic Watch</figcaption>
+                <p class="price">₹899</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g2.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Gold Strap Watch</figcaption>
+                <p class="price">₹1099</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g3.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy Classic Gold Strap Watch</figcaption>
+                <p class="price">₹1399</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g4.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Plaxy Elegant Black Analog Watch</figcaption>
+                <p class="price">₹699</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g5.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Black Leather Strap Watch</figcaption>
+                <p class="price">₹849</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Watches/g7.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Peach Leather Strap Watch</figcaption>
+                <p class="price">₹999</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+    </div>
+
+      <script src="javascript.js"></script>
+</body>
+</html>

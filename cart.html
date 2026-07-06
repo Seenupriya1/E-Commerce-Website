@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="wishlist & cart.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+
+    <div class="icon">
+    <a href="wishlist.html">
+        <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+        <span id="wishlist-count">0</span>
+    </a>
+
+    <a href="cart.html">
+        <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+        <span id="cart-count">0</span>
+    </a>
+</div> 
+
+    <div class="cart-container">
+    <h1>My Cart</h1>
+
+    <div id="cart-products"></div>
+    </div>
+
+    <div class="checkout-section">
+        <h2>Total: ₹<span id="total-amount">0</span></h2>
+    <button onclick="buyNow(this)" class="buy-btn">
+        Buy Now
+    </button>
+
+</div>
+
+    <script src="cart.js"></script>
+
+</body>
+</html>

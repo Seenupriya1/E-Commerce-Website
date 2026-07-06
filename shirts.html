@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Family Fashion</title>
+    <link rel="stylesheet" href="newstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="Images/newlogo.jpeg" alt="logo" class="logo">
+
+        <div class="search-bar">
+          <input type="text" id="search-box" placeholder="Search products...">
+                    <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="shop.html">Home</a>
+            <a href="shop.html#contact-details">Contact</a>
+            <a href="#" onclick="openProfile()">Profile</a>
+            <div id="profileBox" class="popup">
+                <button onclick="openLogin()">Login / Sign Up</button>
+
+                <ul>
+                    <li>Orders</li>
+                    <li>Wishlist</li>
+                    <li>Account</li>
+                    <li>Settings</li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <input type="email" placeholder="Email"><br><br>
+
+                <input type="password" placeholder="Password"><br><br>
+
+                <button>Login</button>
+
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <input type="text" placeholder="Full Name">
+                <br><br>
+
+                <input type="email" placeholder="Email">
+                <br><br>
+
+                <input type="password" placeholder="Password">
+                <br><br>
+
+                <input type="password" placeholder="Confirm Password">
+                <br><br>
+
+                <button>Create Account</button>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+                <div class="icon">
+
+                    <a href="wishlist.html">
+        <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+        <span id="wishlist-count">0</span>
+    </a>
+
+    <a href="cart.html">
+        <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+        <span id="cart-count">0</span>
+    </a>
+                </div>
+
+            </div>
+
+<h1 class="h2">Shirts</h1>
+
+    </header>
+
+    <div class="image-container">
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s1.jpeg" alt="full sleeves pastel green Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves pastel green Shirt</figcaption>
+            <p class="price">₹699</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s2.jpeg" alt="full sleeves Checked Black Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Checked Black Shirt</figcaption>
+            <p class="price">₹799</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s3.jpeg" alt="full sleeves Grey Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Grey Shirt</figcaption>
+            <p class="price">₹699</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s4.jpeg" alt="full sleeves Sky-Blue Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Sky-Blue Shirt</figcaption>
+            <p class="price">₹699</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s5.jpeg" alt="full sleeves Cream Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Cream Shirt</figcaption>
+            <p class="price">₹899</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s6.jpeg" alt="full sleeves Caramel Brown Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Caramel Brown Shirt</figcaption>
+            <p class="price">₹699</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s7.jpeg" alt="full sleeves Dark Green Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Dark Green Shirt</figcaption>
+            <p class="price">₹899</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s8.jpeg" alt="full sleeves Maroon Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Maroon Shirt</figcaption>
+            <p class="price">₹899</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s9.jpeg" alt="full sleeves Checked Navy Blue Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves Checked Navy Blue Shirt</figcaption>
+            <p class="price">₹799</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    <div class="image-box">
+        <figure>
+             <div class="image-wrapper">
+            <img src="Men/shirts/s10.jpeg" alt="full sleeves White Shirt">
+             <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+            <figcaption>TheDino 100% Cotton full sleeves White Shirt</figcaption>
+            <p class="price">₹799</p>
+             <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+        </figure>
+    </div>
+
+    </div>
+
+      <script src="javascript.js"></script>
+</body>
+</html>

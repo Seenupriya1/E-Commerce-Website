@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Family Fashion</title>
+    <link rel="stylesheet" href="newstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="Images/newlogo.jpeg" alt="logo" class="logo">
+
+        <div class="search-bar">
+            <input type="text" id="search-box" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="shop.html">Home</a>
+            <a href="shop.html#contact-details">Contact</a>
+            <a href="#" onclick="openProfile()">Profile</a>
+            <div id="profileBox" class="popup">
+                <button onclick="openLogin()">Login / Sign Up</button>
+
+                <ul>
+                    <li>Orders</li>
+                    <li>Wishlist</li>
+                    <li>Account</li>
+                    <li>Settings</li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <input type="email" placeholder="Email"><br><br>
+
+                <input type="password" placeholder="Password"><br><br>
+
+                <button>Login</button>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <input type="text" placeholder="Full Name">
+                <br><br>
+
+                <input type="email" placeholder="Email">
+                <br><br>
+
+                <input type="password" placeholder="Password">
+                <br><br>
+
+                <input type="password" placeholder="Confirm Password">
+                <br><br>
+
+                <button>Create Account</button>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+            <div class="icon">
+
+                <a href="wishlist.html">
+                    <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+
+        </div>
+        <h1 style="text-align:center; margin-bottom: 20px;">🔥 Flat 50% OFF Sale 🔥</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/nbd.jpeg" alt="Cotton knit full sleeves comfy Romper">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton knit full sleeves comfy Romper</figcaption>
+                <p class="price">
+                    <span class="old-price">₹699</span>
+                    <span class="new-price">₹349</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/gbd2.jpeg" alt="Skyblue Frok">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss Skyblue Frok</figcaption>
+                <p class="price">
+                    <span class="old-price">₹599</span>
+                    <span class="new-price">₹299</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/bbd1.jpeg" alt="Cotton off-white t-shirt & blue jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton off-white t-shirt & blue jeans</figcaption>
+                <p class="price">
+                    <span class="old-price">₹999</span>
+                    <span class="new-price">₹499</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/bbd2.jpeg" alt="Cotton olive green co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton olive green co-ord set</figcaption>
+                <p class="price">
+                    <span class="old-price">₹799</span>
+                    <span class="new-price">₹399</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/gbd1.jpeg" alt="Beige Frok">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss Beige Frok</figcaption>
+                <p class="price">
+                    <span class="old-price">₹699</span>
+                    <span class="new-price">₹349</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/top.jpeg" alt="Cotton Beige Sleeveless Crop Top">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Flora Cotton Beige Sleeveless Crop Top</figcaption>
+                <p class="price">
+                    <span class="old-price">₹399</span>
+                    <span class="new-price">₹199</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/m t-shirt.jpeg" alt="Cotton half sleeves olive-green t-shirt for men">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton half sleeves olive-green t-shirt for men</figcaption>
+                <p class="price">
+                    <span class="old-price">₹599</span>
+                    <span class="new-price">₹299</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/w t-shirt.jpeg" alt="Cotton half sleeves sky-blue t-shirt for women">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton half sleeves sky-blue t-shirt for women</figcaption>
+                <p class="price">
+                    <span class="old-price">₹1099</span>
+                    <span class="new-price">₹549</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/skirt.jpeg" alt="Cotton Beige Skirt">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Flora Cotton Beige Skirt</figcaption>
+                <p class="price">
+                    <span class="old-price">₹499</span>
+                    <span class="new-price">₹249</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/jeans.jpeg" alt="Blue Straight Fit Jeans for Men">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Blue Straight Fit Jeans for Men</figcaption>
+                <p class="price">
+                    <span class="old-price">₹1499</span>
+                    <span class="new-price">₹749</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/shirt.jpeg" alt="Cotton full sleeves Off-white Shirt">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton full sleeves Off-white Shirt</figcaption>
+                <p class="price">
+                    <span class="old-price">₹699</span>
+                    <span class="new-price">₹349</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/sunglasses.jpeg" alt="Black UV Protected Sunglasses">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Classic Black UV Protected Sunglasses</figcaption>
+                <p class="price">
+                    <span class="old-price">₹399</span>
+                    <span class="new-price">₹199</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/cap.jpeg" alt="Beige Running Cap">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Beige Running Cap</figcaption>
+                <p class="price">
+                    <span class="old-price">₹299</span>
+                    <span class="new-price">₹149</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/watch.jpeg" alt="Black Strap Watch">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Leas Black Strap Watch</figcaption>
+                <p class="price">
+                    <span class="old-price">₹1999</span>
+                    <span class="new-price">₹999</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="Sale/handbag.jpeg" alt="Off-white Handbag">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Off-white Handbag</figcaption>
+                <p class="price">
+                    <span class="old-price">₹899</span>
+                    <span class="new-price">₹449</span>
+                </p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

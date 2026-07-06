@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Family Fashion</title>
+    <link rel="stylesheet" href="access.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+     <header>
+
+        <div class="top-bar"></div>
+        <img src="Images/newlogo.jpeg" alt="logo" class="logo">
+
+        <div class="search-bar">
+           <input type="text" id="search-box" placeholder="Search products...">
+                    <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="shop.html">Home</a>
+            <a href="shop.html#contact-details">Contact</a>
+            <a href="#" onclick="openProfile()">Profile</a>
+            <div id="profileBox" class="popup">
+                <button onclick="openLogin()">Login / Sign Up</button>
+
+                <ul>
+                    <li>Orders</li>
+                    <li>Wishlist</li>
+                    <li>Account</li>
+                    <li>Settings</li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <input type="email" placeholder="Email"><br><br>
+
+                <input type="password" placeholder="Password"><br><br>
+
+                <button>Login</button>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <input type="text" placeholder="Full Name">
+                <br><br>
+
+                <input type="email" placeholder="Email">
+                <br><br>
+
+                <input type="password" placeholder="Password">
+                <br><br>
+
+                <input type="password" placeholder="Confirm Password">
+                <br><br>
+
+                <button>Create Account</button>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+                <div class="icon">
+
+                     <a href="wishlist.html">
+        <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+        <span id="wishlist-count">0</span>
+    </a>
+
+    <a href="cart.html">
+        <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+        <span id="cart-count">0</span>
+    </a>
+                </div>
+
+            </div>
+<h1 class="h2">Bags</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/B1.jpg" alt="Kids">
+                 <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>FlyAway Navy Blue Lightweight School Bag</figcaption>
+                <p class="price">₹499</p>
+                 <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/B2.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>FlyAway Peach College Backpack</figcaption>
+                <p class="price">₹399</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/B3.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>FlyAway Black College Backpack</figcaption>
+                <p class="price">₹499</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/B4.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>FlyAway Pink Peach College Backpack</figcaption>
+                <p class="price">₹399</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/B5.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>FlyAway Grey Lightweught School Bag</figcaption>
+                <p class="price">₹499</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/h1.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Peach Sling Bag</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/h2.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Brown Sling Bag</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/h3.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Peach Classic Sling Bag</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/h4.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Brown Crossbody Bag</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/h5.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Grey Classic Sling Bag</figcaption>
+                <p class="price">₹799</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/bag1.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Red HandBag</figcaption>
+                <p class="price">₹949</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/bag2.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Light Brown HandBag</figcaption>
+                <p class="price">₹949</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/bag3.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Teal Blue HandBag</figcaption>
+                <p class="price">₹849</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/bag4.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Black HandBag</figcaption>
+                <p class="price">₹949</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                 <div class="image-wrapper">
+                <img src="Accessories/Bags/bag5.jpg" alt="Kids">
+                <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>Mounto Classic Brown HandBag</figcaption>
+                <p class="price">₹849</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+    </div>
+
+<script src="javascript.js"></script>
+</body>
+</html>
+        
