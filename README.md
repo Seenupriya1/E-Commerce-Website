@@ -74,40 +74,40 @@ python app.py
 ## Screenshots
 
 ### Home Page
-![Home Page](screenshots/Home page.png)
+![Home Page](screenshots/Home page.jpeg)
 
 ### Baby Girl Collection Page
-![Baby Girl Collection Page](screenshots/Baby girl collection page.png)
+![Baby Girl Collection Page](screenshots/Baby girl collection page.jpeg)
 
 ### Shop Page
-![Shop Page](screenshots/Shop page.png)
+![Shop Page](screenshots/Shop page.jpeg)
 
 ### Sale Page
-![Sale Page](screenshots/Sale page.png)
+![Sale Page](screenshots/Sale page.jpeg)
 
 ### Women's Top Page
-![Women's Top Page](screenshots/Women's top page.png)
+![Women's Top Page](screenshots/Women's top page.jpeg)
 
 ### Men's Shirts Page
-![Men's Shirts Page](screenshots/Men's shirts page.png)
+![Men's Shirts Page](screenshots/Men's shirts page.jpeg)
 
 ### Cart Page
-![Cart Page](screenshots/Cart page.png)
+![Cart Page](screenshots/Cart page.jpeg)
 
 ### Wishlist Page
-![Wishlist Page](screenshots/Wishlist page.png)
+![Wishlist Page](screenshots/Wishlist page.jpeg)
 
 ### Orders Page
-![Orders Page](screenshots/Orders page.png)
+![Orders Page](screenshots/Orders page.jpeg)
 
 ### Profile Popup
-![Profile Popup](screenshots/Profile popup.png)
+![Profile Popup](screenshots/Profile popup.jpeg)
 
 ### Popup Box
-![Popup Box](screenshots/Popup box.png)
+![Popup Box](screenshots/Popup box.jpeg)
 
 ### Footer Column
-![Footer Column](screenshots/Footer column.png)
+![Footer Column](screenshots/Footer column.jpeg)
 
 
 ## Future Improvements
