@@ -74,7 +74,7 @@ python app.py
 ## Screenshots
 
 ### Home Page
-![Home Page](shopping/screenshots/Home page.jpeg)
+![Home Page](screenshots/Home-page.jpeg)
 
 ### Baby Girl Collection Page
 ![Baby Girl Collection Page](screenshots/Baby girl collection page.jpeg)
