@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.payment-options {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.payment-options label {
+    display: block;
+    margin: 18px 0;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.payment-options input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    width: 160px;
+    height: 45px;
+    display: block;
+    margin: 30px auto 0;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #333;
+}

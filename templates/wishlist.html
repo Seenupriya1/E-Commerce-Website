@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Wishlist - Family Fashion</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wishlist & cart.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="icon">
+        <a href="{{ url_for('wishlist') }}">
+            <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+            <span id="wishlist-count">0</span>
+        </a>
+
+        <a href="{{ url_for('cart') }}">
+            <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+
+    <div class="wishlist-container">
+        <h1>My Wishlist</h1>
+
+        <div id="wishlist-products"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/wishlist.js') }}"></script>
+
+</body>
+
+</html>

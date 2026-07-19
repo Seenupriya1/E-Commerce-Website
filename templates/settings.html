@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings - Family Fashion</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Settings</h1>
+        <div class="settings-content">
+            <h2>Edit Name</h2>
+
+            <form action="{{ url_for('update_name') }}" method="POST">
+                <input type="text" name="fullname" placeholder="New Name" required>
+                <button type="submit">Update Name</button>
+            </form>
+
+            <h2>Change Email</h2>
+
+            <form action="{{ url_for('update_email') }}" method="POST">
+                <input type="email" name="email" placeholder="New Email" required>
+                <button type="submit">Update Email</button>
+            </form>
+
+
+
+            <div class="delete-section">
+                <h2>Delete My Account</h2>
+
+                <form action="{{ url_for('delete_account') }}" method="POST"
+                    onsubmit="return confirm('Are you sure you want to delete your account?');">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+
+
+
+            <div class="bottom-buttons">
+                <a href="{{ url_for('logout') }}">
+                    <button type="button" class="same-btn">Logout</button>
+                </a>
+
+                <a href="{{ url_for('index') }}" class="home-btn same-btn">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

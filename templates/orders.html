@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders - Family Fashion</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My Orders</h1>
+
+        {% if orders %}
+
+        {% for order_id, order in orders.items() %}
+
+        <div class="order-box">
+
+            <h2>Order No.{{ order_id }}</h2>
+
+            <p><strong>Order Date:</strong> {{ order.date }}</p>
+
+            <p><strong>Status:</strong> {{ order.status }}</p>
+
+            {% for item in order["items"] %}
+
+            <div class="item">
+
+                <img src="{{ item.image }}">
+
+                <div class="item-details">
+                    <p><strong>Product:</strong> {{ item.name }}</p>
+                    <p><strong>Price:</strong> ₹{{ item.price }}</p>
+                    <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <h3 class="total">Total: ₹{{ order.total }}</h3>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <p class="no-orders">No orders yet.</p>
+
+        {% endif %}
+
+        <a href="{{ url_for('index') }}" class="home-btn">Back to Home</a>
+
+        <script>
+            localStorage.removeItem("cart");
+        </script>
+
+    </div>
+
+</body>
+
+</html>

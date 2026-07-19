@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Women's Collection - Family Fashion</title>
+
+    <meta name="description"
+        content="Explore the Women's Collection at Family Fashion. Shop stylish t-shirts, jeans, tops, skirts, and ethnic wear designed for comfort and everyday fashion.">
+    <meta name="author" content="Seenupriya">
+
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='Images/ti.jpeg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="kiddo">
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="{{ url_for('static', filename='Images/newlogo.jpeg') }}" alt="logo" class="logo">
+
+        <div class="search-bar">
+            <input type="text" id="search-box" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('index') }}#contact-details">Contact</a>
+            {% if session.get('user_name') %}
+            <a href="#" onclick="openProfile()">
+                {{ session['user_name'] }}
+            </a>
+            {% else %}
+            <a href="#" onclick="openProfile()">
+                Profile
+            </a>
+            {% endif %}
+
+            <div id="profileBox" class="popup">
+
+                {% if session.get('user_name') %}
+                <p>Welcome, {{ session['user_name'] }}</p>
+
+                <a href="{{ url_for('logout') }}">
+                    <button>Logout</button>
+                </a>
+                {% else %}
+                <button onclick="openLogin()">Login / Sign Up</button>
+                {% endif %}
+
+                <ul>
+                    <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                    <li><a href="{{ url_for('wishlist') }}">Wishlist</a></li>
+                    <li><a href="{{ url_for('account') }}">Account</a></li>
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <form action="{{ url_for('login') }}" method="POST">
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <button type="submit">Login</button>
+
+                </form>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <form action="{{ url_for('signup') }}" method="POST">
+
+                    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+
+                    <button type="submit">Create Account</button>
+
+                </form>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+            <div class="icon">
+
+                <a href="{{ url_for('wishlist') }}">
+                    <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <a href="{{ url_for('cart') }}">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <h1 class="h2">Women's Collection</h1>
+
+    </header>
+
+    <main>
+        <div class="container">
+
+            <a href="{{ url_for('wtshirts') }}">
+                <figure>
+                    <img src="{{ url_for('static', filename='Women/w t-shirts/ts1.jpeg') }}" alt="t-shirts">
+                    <figcaption>T-Shirts</figcaption>
+                </figure>
+            </a>
+
+            <a href="{{ url_for('wjeans') }}">
+                <figure>
+                    <img src="{{ url_for('static', filename='Women/w jeans/j1.jpeg') }}" alt="jeans">
+                    <figcaption>Jeans</figcaption>
+                </figure>
+            </a>
+
+            <a href="{{ url_for('tops') }}">
+                <figure>
+                    <img src="{{ url_for('static', filename='Women/tops/t1.jpeg') }}" alt="tops">
+                    <figcaption>Tops</figcaption>
+                </figure>
+            </a>
+
+            <a href="{{ url_for('skirts') }}">
+                <figure>
+                    <img src="{{ url_for('static', filename='Women/skirts/s1.jpeg') }}" alt="skirts">
+                    <figcaption>Skirts</figcaption>
+                </figure>
+            </a>
+
+            <a href="{{ url_for('ethnicwear') }}">
+                <figure>
+                    <img src="{{ url_for('static', filename='Women/ethnic wear/e1.jpeg') }}" alt="ethnic-wear">
+                    <figcaption>Ethnic Wear</figcaption>
+                </figure>
+            </a>
+
+        </div>
+
+        <h2 class="line">Elegant styles • Modern trends • Everyday comfort</h2>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</body>
+
+</html>

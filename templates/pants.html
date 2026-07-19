@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formal Pants - Family Fashion</title>
+
+    <meta name="description"
+        content="Explore the latest collection of men's formal pants at Family Fashion. Premium cotton trousers crafted for comfort, durability, and a polished look throughout the day.">
+    <meta name="author" content="Seenupriya">
+
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='Images/ti.jpeg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newstyle.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="{{ url_for('static', filename='Images/newlogo.jpeg') }}" alt="logo" class="logo">
+
+        <div class="search-bar">
+            <input type="text" id="search-box" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('index') }}#contact-details">Contact</a>
+            {% if session.get('user_name') %}
+            <a href="#" onclick="openProfile()">
+                {{ session['user_name'] }}
+            </a>
+            {% else %}
+            <a href="#" onclick="openProfile()">
+                Profile
+            </a>
+            {% endif %}
+
+            <div id="profileBox" class="popup">
+
+                {% if session.get('user_name') %}
+                <p>Welcome, {{ session['user_name'] }}</p>
+
+                <a href="{{ url_for('logout') }}">
+                    <button>Logout</button>
+                </a>
+                {% else %}
+                <button onclick="openLogin()">Login / Sign Up</button>
+                {% endif %}
+
+                <ul>
+                    <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                    <li><a href="{{ url_for('wishlist') }}">Wishlist</a></li>
+                    <li><a href="{{ url_for('account') }}">Account</a></li>
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <form action="{{ url_for('login') }}" method="POST">
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <button type="submit">Login</button>
+
+                </form>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <form action="{{ url_for('signup') }}" method="POST">
+
+                    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+
+                    <button type="submit">Create Account</button>
+
+                </form>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+            <div class="icon">
+
+                <a href="{{ url_for('wishlist') }}">
+                    <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <a href="{{ url_for('cart') }}">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+
+        </div>
+        <h1 class="h2">Formal Pants</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p1.jpeg') }}" alt="Beige Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Beige Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p2.jpeg') }}" alt="Black Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Black Formal Pants</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p3.jpeg') }}" alt="Grey Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Grey Formal Pants</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p4.jpeg') }}" alt="Brown Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Brown Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p5.jpeg') }}" alt="Darkblue Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Darkblue Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p6.jpeg') }}" alt="White Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton White Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p7.jpeg') }}" alt="Maroon Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Maroon Formal Pants</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p8.jpeg') }}" alt="Light Brown Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Light Brown Formal Pants</figcaption>
+                <p class="price">₹599</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p9.jpeg') }}" alt="Dark Green Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Dark Green Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Men/pants/p10.jpeg') }}" alt="Light Grey Formal Pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton Light Grey Formal Pants</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</body>
+
+</html>

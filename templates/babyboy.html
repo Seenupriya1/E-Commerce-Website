@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baby Boy Collection - Family Fashion</title>
+
+    <meta name="description"
+        content="Explore the Baby Boy Collection at Family Fashion. Shop soft cotton t-shirts, jeans, co-ord sets, and comfortable everyday outfits for baby boys.">
+    <meta name="author" content="Seenupriya">
+
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='Images/ti.jpeg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newstyle.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="{{ url_for('static', filename='Images/newlogo.jpeg') }}" alt="logo" class="logo">
+
+        <div class="search-bar">
+            <input type="text" id="search-box" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('index') }}#contact-details">Contact</a>
+            {% if session.get('user_name') %}
+            <a href="#" onclick="openProfile()">
+                {{ session['user_name'] }}
+            </a>
+            {% else %}
+            <a href="#" onclick="openProfile()">
+                Profile
+            </a>
+            {% endif %}
+
+            <div id="profileBox" class="popup">
+
+                {% if session.get('user_name') %}
+                <p>Welcome, {{ session['user_name'] }}</p>
+
+                <a href="{{ url_for('logout') }}">
+                    <button>Logout</button>
+                </a>
+                {% else %}
+                <button onclick="openLogin()">Login / Sign Up</button>
+                {% endif %}
+
+                <ul>
+                    <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                    <li><a href="{{ url_for('wishlist') }}">Wishlist</a></li>
+                    <li><a href="{{ url_for('account') }}">Account</a></li>
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <form action="{{ url_for('login') }}" method="POST">
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <button type="submit">Login</button>
+
+                </form>
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <form action="{{ url_for('signup') }}" method="POST">
+
+                    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+
+                    <button type="submit">Create Account</button>
+
+                </form>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+            <div class="icon">
+
+                <a href="{{ url_for('wishlist') }}">
+                    <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <a href="{{ url_for('cart') }}">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+
+        </div>
+        <h1 class="h2">Baby Boy Collection</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/boydress1.jpeg') }}"
+                        alt="green t-shirt & grey pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton t-shirt & pant</figcaption>
+                <p class="price">₹649</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/boydress2.jpeg') }}"
+                        alt="stripped white t-shirt & navy-blue pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton stripped sleeveless t-shirt & pant</figcaption>
+                <p class="price">₹699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/boydress3.jpeg') }}"
+                        alt="off-white t-shirt & green pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton plain t-shirt & pant</figcaption>
+                <p class="price">₹799</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/boydress4.jpeg') }}"
+                        alt="sky-blue t-shirt & darkblue pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton plain sleeveless t-shirt & pant</figcaption>
+                <p class="price">₹649</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/boydress5.jpeg') }}"
+                        alt="navy-blue t-shirt & grey pants">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton plain t-shirt & pant</figcaption>
+                <p class="price">₹799</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/b1.jpeg') }}"
+                        alt="red t-shirt & black jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton red t-shirt & black jeans</figcaption>
+                <p class="price">₹849</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/b2.jpeg') }}"
+                        alt="navy-blue t-shirt & grey jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton navy-blue t-shirt & grey jeans</figcaption>
+                <p class="price">₹899</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/b3.jpeg') }}"
+                        alt="yellow t-shirt & navy-blue jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton yellow t-shirt & navy-blue jeans</figcaption>
+                <p class="price">₹999</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/b4.jpeg') }}"
+                        alt="white t-shirt & light-blue jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton white t-shirt & light-blue jeans</figcaption>
+                <p class="price">₹849</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/b5.jpeg') }}"
+                        alt="olive-green t-shirt & beige jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton olive-green t-shirt & beige jeans</figcaption>
+                <p class="price">₹849</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/d1.jpeg') }}" alt="solid grey co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton solid grey co-ord set</figcaption>
+                <p class="price">₹499</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/d2.jpeg') }}" alt="solid peach co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton solid peach co-ord set</figcaption>
+                <p class="price">₹499</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/d3.jpeg') }}"
+                        alt="solid olive-green co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>NatureBliss 100% Cotton solid olive-green co-ord set</figcaption>
+                <p class="price">₹449</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/d4.jpeg') }}" alt="solid yellow co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton solid yellow co-ord set</figcaption>
+                <p class="price">₹449</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='kids/baby boy/d5.jpeg') }}"
+                        alt="solid sky-blue co-ord set">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino 100% Cotton solid sky-blue co-ord set</figcaption>
+                <p class="price">₹499</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</body>
+
+</html>

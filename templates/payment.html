@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - Family Fashion</title>
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Select Payment Method</h1>
+
+        <form action="{{ url_for('place_order') }}" method="POST">
+
+            <input type="hidden" name="cart_data" value='{{ cart_data }}'>
+
+            <input type="radio" name="payment" value="UPI" required> UPI<br><br>
+
+            <input type="radio" name="payment" value="Credit Card"> Credit Card<br><br>
+
+            <input type="radio" name="payment" value="Debit Card"> Debit Card<br><br>
+
+            <input type="radio" name="payment" value="Net Banking"> Net Banking<br><br>
+
+            <input type="radio" name="payment" value="Cash on Delivery"> Cash on Delivery<br><br>
+
+            <button type="submit">Confirm Order</button>
+
+        </form>
+    </div>
+</body>
+
+</html>

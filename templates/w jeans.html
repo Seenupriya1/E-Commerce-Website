@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Women's Jeans - Family Fashion</title>
+
+    <meta name="description"
+        content="Shop stylish women's jeans at Family Fashion. Explore straight fit, skinny fit, bootcut, flared, and high-rise jeans in trendy colors with premium comfort at affordable prices.">
+    <meta name="author" content="Seenupriya">
+
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='Images/ti.jpeg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/newstyle.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-bar"></div>
+        <img src="{{ url_for('static', filename='Images/newlogo.jpeg') }}" alt="logo" class="logo">
+
+        <div class="search-bar">
+            <input type="text" id="search-box" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+
+        <div class="tabs">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('index') }}#contact-details">Contact</a>
+            {% if session.get('user_name') %}
+            <a href="#" onclick="openProfile()">
+                {{ session['user_name'] }}
+            </a>
+            {% else %}
+            <a href="#" onclick="openProfile()">
+                Profile
+            </a>
+            {% endif %}
+
+            <div id="profileBox" class="popup">
+
+                {% if session.get('user_name') %}
+                <p>Welcome, {{ session['user_name'] }}</p>
+
+                <a href="{{ url_for('logout') }}">
+                    <button>Logout</button>
+                </a>
+                {% else %}
+                <button onclick="openLogin()">Login / Sign Up</button>
+                {% endif %}
+
+                <ul>
+                    <li><a href="{{ url_for('orders') }}">Orders</a></li>
+                    <li><a href="{{ url_for('wishlist') }}">Wishlist</a></li>
+                    <li><a href="{{ url_for('account') }}">Account</a></li>
+                    <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                </ul>
+
+                <button onclick="closeProfile()">Close</button>
+            </div>
+
+            <div id="loginBox" class="popupbox">
+                <h3>Login</h3>
+
+                <form action="{{ url_for('login') }}" method="POST">
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <button type="submit">Login</button>
+
+                </form>
+
+
+                <p>Don't have an account? Sign Up</p>
+
+                <button onclick="openSignup()">Sign Up</button>
+
+                <button onclick="closeLogin()">Close</button>
+            </div>
+
+            <div id="signupBox" class="popupbox">
+                <h3>Sign Up</h3>
+
+                <form action="{{ url_for('signup') }}" method="POST">
+
+                    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+
+                    <input type="email" name="email" placeholder="Email" required><br><br>
+
+                    <input type="password" name="password" placeholder="Password" required><br><br>
+
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+
+                    <button type="submit">Create Account</button>
+
+                </form>
+
+                <button onclick="closeSignup()">Close</button>
+            </div>
+
+            <div class="icon">
+
+                <a href="{{ url_for('wishlist') }}">
+                    <i class="fa-solid fa-heart" style="color: rgb(115, 15, 15);"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <a href="{{ url_for('cart') }}">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: rgb(115, 15, 15);"></i>
+                    <span id="cart-count">0</span>
+                </a>
+            </div>
+
+        </div>
+        <h1 class="h2">Jeans</h1>
+
+    </header>
+
+    <div class="image-container">
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j1.jpeg') }}" alt="Beige Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Beige Straight Fit Jeans For Women</figcaption>
+                <p class="price">₹799</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j2.jpeg') }}" alt="Grey Flared Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Grey Flared Jeans</figcaption>
+                <p class="price">₹999</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j3.jpeg') }}"
+                        alt="Bootcut High-Rise Light Blue Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Comfort Bootcut High-Rise Light Blue Jeans</figcaption>
+                <p class="price">₹899</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j4.jpeg') }}"
+                        alt="Bootcut High-Rise Black Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Comfort Bootcut High-Rise Black Jeans</figcaption>
+                <p class="price">₹1099</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j5.jpeg') }}" alt="White Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino White Straight Fit Jeans</figcaption>
+                <p class="price">₹999</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j6.jpeg') }}"
+                        alt="Navy Blue Skinny Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Navy Blue Skinny Fit Jeans</figcaption>
+                <p class="price">₹999</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j7.jpeg') }}"
+                        alt="Light Blue Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Light Blue Straight Fit Jeans For Women</figcaption>
+                <p class="price">₹1399</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j8.jpeg') }}" alt="Black Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Black Straight Fit Jeans</figcaption>
+                <p class="price">₹1299</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j9.jpeg') }}"
+                        alt="Navy Blue Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Navy Blue Straight Fit Jeans</figcaption>
+                <p class="price">₹1699</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+        <div class="image-box">
+            <figure>
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='Women/w jeans/j10.jpeg') }}" alt="Grey Straight Fit Jeans">
+                    <i class="fa-regular fa-heart heart" onclick="addToWishlist(this)"></i>
+                </div>
+                <figcaption>TheDino Grey Straight Fit Jeans</figcaption>
+                <p class="price">₹1549</p>
+                <div class="add-cart" onclick="addToCart(this)">
+                    Add to Cart
+                </div>
+            </figure>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/javascript.js') }}"></script>
+</body>
+
+</html>
