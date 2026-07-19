@@ -73,18 +73,42 @@ python app.py
 
 ## Screenshots
 
-- Home Page
-- Footer Column
-- Cart Page
-- Wishlist Page
-- Popup Box 
-- Profile Popup
-- Orders Page
-- Sale Page
-- Women's Top Page
-- Men's Shirts Page
-- Baby Girl Collection Page
-- Shop Page
+### Home Page
+![Home Page](screenshots/home page.png)
+
+### Baby Girl Collection Page
+![Baby Girl Collection Page](screenshots/baby girl collection page.png)
+
+### Shop Page
+![Shop Page](screenshots/shop page.png)
+
+### Sale Page
+![Sale Page](screenshots/sale page.png)
+
+### Women's Top Page
+![Women's Top Page](screenshots/women's top page.png)
+
+### Men's Shirts Page
+![Men's Shirts Page](screenshots/men's shirts page.png)
+
+### Cart Page
+![Cart Page](screenshots/cart page.png)
+
+### Wishlist Page
+![Wishlist Page](screenshots/wishlist page.png)
+
+### Orders Page
+![Orders Page](screenshots/orders page.png)
+
+### Profile Popup
+![Profile Popup](screenshots/profile popup.png)
+
+### Popup Box
+![Popup Box](screenshots/popup box.png)
+
+### Footer Column
+![Footer Column](screenshots/footer column.png)
+
 
 ## Future Improvements
 
